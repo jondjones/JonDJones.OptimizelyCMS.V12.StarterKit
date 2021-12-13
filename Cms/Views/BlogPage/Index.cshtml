@@ -1,0 +1,24 @@
+﻿@using Cms.Core.ViewModel
+@using Cms.Core.Models.Pages
+@using JonDJones.Core.ViewModel
+@using EPiServer.Web.Mvc.Html
+
+@model ComposedPageViewModel<BlogPage, BlogPageViewModel>
+@{
+    Layout = "../master.cshtml";
+}
+
+<!-- Main -->
+<section id="main">
+    <div class="container">
+        <div class="row">
+
+            <!-- Content -->
+            <div id="content" class="col-12 col-12-medium">
+
+                @Html.PropertyFor(m => m.Page.Content)
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+﻿@model Cms.Core.ViewModel.Base.ComposedBlockViewModel<Cms.Core.Models.Blocks.BlogArea, Cms.Core.ViewModel.Blocks.BlogAreaViewModel>
+@using EPiServer.Web.Mvc.Html
+
+<section id="main">
+    <div class="container">
+        <!-- Content -->
+        <div id="content" class="col-12 col-12-medium">
+            @foreach (var blog in Model.ViewModel.Blogs)
+            {
+
+                <!-- Post -->
+                <article class="box post">
+                    <header>
+                        <h2><a href="@blog.LinkUrl">@blog.Title</a></h2>
+                    </header>
+                    <a href="@blog.LinkUrl)" class="image featured">
+                        <img src="@blog.ImageUrl" alt="@blog.Title" height="350" width="900" />
+                    </a>
+
+                    <p>
+
+                        @Html.PropertyFor(x => blog.Content)
+
+                        <ul class="actions">
+                            <li><a href="@blog.LinkUrl" class="button icon solid fa-file">Continue Reading</a></li>
+                        </ul>
+                </article>
+            }
+        </div>
+    </div>
+</section>

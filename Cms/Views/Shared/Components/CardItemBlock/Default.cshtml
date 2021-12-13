@@ -1,0 +1,17 @@
+﻿@model Cms.Core.ViewModel.Base.ComposedBlockViewModel<Cms.Core.Models.Blocks.CardItemBlock, Cms.Core.ViewModel.Blocks.CardItemViewModel>
+@using EPiServer.Web.Mvc.Html
+
+<!-- Feature -->
+<section>
+    <a href="@Url.ContentUrl(Model.ViewModel.Url)" class="image featured">
+        <img src="@Model.ViewModel.ImageUrl" alt="@Model.ViewModel.Title" height="233" width="348" />
+    </a>
+    <header>
+        <h3>
+            @Model.ViewModel.Title
+        </h3>
+    </header>
+    <p>
+        @Html.PropertyFor(x => Model.ViewModel.Content)
+    </p>
+</section>

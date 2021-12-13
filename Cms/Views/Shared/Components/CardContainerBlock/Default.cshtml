@@ -1,0 +1,26 @@
+﻿@model Cms.Core.ViewModel.Base.ComposedBlockViewModel<Cms.Core.Models.Blocks.CardContainerBlock, Cms.Core.ViewModel.Blocks.CardContainerViewModel>
+@using EPiServer.Web.Mvc.Html
+
+<section id="features">
+    <div class="container">
+        <header>
+            <h2>
+                @Html.PropertyFor(m => m.ViewModel.Title)
+            </h2>
+        </header>
+
+        @Html.PropertyFor(x => Model.ViewModel.CardArea, new
+        {
+           CustomTag = "div",
+           CssClass = "row aln-center",
+           ChildrenCustomTagName = "div",
+           ChildrenCssClass = "col-4 col-6-medium col-12-small"
+        })
+
+        <div class="col-12">
+            <ul class="actions">
+                <li><a href="#" class="button icon solid fa-file">Tell Me More</a></li>
+            </ul>
+        </div>
+    </div>
+</section>

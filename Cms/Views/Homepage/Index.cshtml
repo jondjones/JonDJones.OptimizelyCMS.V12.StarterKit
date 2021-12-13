@@ -1,0 +1,17 @@
+﻿@using Cms.Core.ViewModel
+@using Cms.Core.Models.Pages
+@using JonDJones.Core.ViewModel
+@using EPiServer.Web.Mvc.Html
+
+@model ComposedPageViewModel<HomePage, HomeViewModel>
+@{
+    Layout = "../master.cshtml";
+}
+
+<!-- Main -->
+<section id="main">
+
+    @Html.PropertyFor(m => m.Page.MainContentArea)
+
+
+</section>
