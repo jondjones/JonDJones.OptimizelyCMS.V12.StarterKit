@@ -1,31 +1,37 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Serilog;
+using Serilog.Formatting.Compact;
 using System;
 
 namespace Cms
 {
     public class Program
     {
+        public static IConfiguration Configuration { get; } =
+            new ConfigurationBuilder()
+            .AddJsonFile("appSettings.json", false, true)
+            .AddEnvironmentVariables()
+            .Build();
+
+
         public static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(Configuration).WriteTo.Console().CreateLogger();
+
             CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
+
             Host.CreateDefaultBuilder(args)
                 .ConfigureCmsDefaults()
+                .UseSerilog()
                 .ConfigureAppConfiguration((ctx, builder) =>
                 {
-                    builder.AddJsonFile("appsettings.json", false, true);
-
-                    // Add local developer level configuraion
-                    var enviroment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                    Console.WriteLine("HostingEnvironmentName: '{0}'", enviroment);
-
-                    builder.AddJsonFile($"appsettings.{enviroment}.json", true, true);
-
-                    builder.AddEnvironmentVariables();
+                    builder.AddConfiguration(Configuration);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

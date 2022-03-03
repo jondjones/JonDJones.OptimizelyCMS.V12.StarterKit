@@ -80,8 +80,10 @@ namespace Cms
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(name: "Default", pattern: "{controller}/{action}/{id?}");
                 endpoints.MapControllers();
                 endpoints.MapContent();
+
             });
         }
     }

@@ -1,0 +1,8 @@
+2022-03-03 12:25:15.382 +00:00 [ERR] Log Manager Error
+2022-03-03 12:25:15.416 +00:00 [WRN] Logging Warning Message
+2022-03-03 12:25:15.420 +00:00 [ERR] Logging Error Message "2022-03-03T12:25:15.4196318+00:00"
+2022-03-03 12:25:15.423 +00:00 [FTL] Logging Critical Message
+2022-03-03 12:40:32.669 +00:00 [ERR] Log Manager Error
+2022-03-03 12:40:32.701 +00:00 [WRN] Logging Warning Message
+2022-03-03 12:40:32.703 +00:00 [ERR] Logging Error Message "2022-03-03T12:40:32.7028859+00:00"
+2022-03-03 12:40:32.705 +00:00 [FTL] Logging Critical Message
